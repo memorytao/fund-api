@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(allowedHeaders = "*", origins = "*")
 @RestController
-public class AccessController extends Exception {
+public class LoginController extends Exception {
 
 	/**
 	 * 
