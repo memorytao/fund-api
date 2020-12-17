@@ -1,4 +1,4 @@
-package com.fund.company;
+package com.fund;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,18 +18,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController()
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RestController
 public class FundController {
 
 	@Autowired
 	Environment env;
 
-	@GetMapping("/api/companies")
+	@GetMapping(value = "/api/companies")
 	public String getFundCompanies(@RequestHeader Map<String, String> headers) {
 
 		HttpClient client = new DefaultHttpClient();
-		
+
 		try {
 
 			HttpGet request = new HttpGet("https://api.sec.or.th/FundFactsheet/fund/amc/");
