@@ -1,5 +1,6 @@
 package com.login;
 
+import org.json.JSONObject;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,16 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(allowedHeaders = "*", origins = "*")
 @RestController
-public class LoginController extends Exception {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1257987193953335694L;
+public class LoginController {
 
 	@GetMapping("/login")
-	String login(@RequestParam String user, @RequestParam String pass, Model model) {
-		return "";
+	String login(@RequestParam(required = false) String user, @RequestParam(required = false) String pass,
+			Model model) {
+//		model.addAttribute("login_status", "SUCCESS");
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("login_status", "SUCCESS");
+		return jsonObject.toString();
 	}
 
 }
